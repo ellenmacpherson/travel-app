@@ -1,0 +1,2 @@
+# Exclude Node modules from source control
+/node_modules/
