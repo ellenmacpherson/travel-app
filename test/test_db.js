@@ -10,7 +10,7 @@ describe('Test DB connectivity', function(){
         user: process.env.DB_TEST_USER,
         password: process.env.DB_TEST_PASS
     });
-    it('Server should respond with OkPacket...', function(done){
+    it('Initial server response should contain OkPacket...', function(done){
         
         connection.connect((err, result) => {
             if (err) throw err;
