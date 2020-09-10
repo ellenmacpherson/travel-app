@@ -1,10 +1,21 @@
 const http = require('http');
 var fs = require('fs');
 
-http.createServer(function (req, res) {
-  fs.readFile('index.html', function(err, contents) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(contents);
+const hostname = '127.0.0.1';
+const port = 8080;
+
+fs.readFile('index.html', (err, html) => {
+  if (err) {
+    throw err;
+  }
+  const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-type', 'text/html');
+    res.write(html);
     res.end();
   });
-  }).listen(8080);
+  
+  server.listen(port, hostname, () => {
+    console.log('Server started on port '+port);
+  });
+});
