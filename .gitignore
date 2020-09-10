@@ -1,2 +1,4 @@
 # Exclude Node modules from source control
 /node_modules/
+# Exclude sensitive information from source control
+.env

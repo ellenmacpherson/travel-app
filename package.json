@@ -4,7 +4,7 @@
   "description": "A website for Ellen and Rob's Antipodean travel adventures",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/ellenmacpherson/travel-app#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.3"
   }
 }
