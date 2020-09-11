@@ -1,8 +1,12 @@
+require('dotenv').config()
 const http = require('http');
 var fs = require('fs');
 
-const hostname = '127.0.0.1';
-const port = 8080;
+const hostname = process.env.APP_HOST;
+const port = process.env.APP_PORT;
+
+//Boot up the API/backend
+const API = require('./src/api/server.js');
 
 fs.readFile('index.html', (err, html) => {
   if (err) {
@@ -16,6 +20,6 @@ fs.readFile('index.html', (err, html) => {
   });
   
   server.listen(port, hostname, () => {
-    console.log('Server started on port '+port);
+    console.log(`App server started on http://${hostname}:${port}/`);
   });
 });
