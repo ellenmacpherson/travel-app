@@ -1,0 +1,51 @@
+// Place related API methods
+const url = require('url');
+const mysql = require('mysql');
+
+exports.getAll = function(req, res) {
+    const reqURL = url.parse(req.url, true);
+
+    const connection = mysql.createConnection({
+        host: process.env.DB_HOST,
+        user: process.env.DB_BASIC_USER,
+        password: process.env.DB_BASIC_PASS,
+        database: process.env.DB_NAME
+    });
+
+    var name = reqURL.query.name;
+
+    var sqlQuery = "SELECT * FROM Places;";
+
+    connection.query(sqlQuery, (err, result) => {
+        if (err) throw err;
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(result, null, 3));
+    })
+};
+
+exports.get = function(req, res) {
+    const reqURL = url.parse(req.url, true);
+    //console.log('Fetching details for place: ' + req.params.id)
+    
+    const connection = mysql.createConnection({
+        host: process.env.DB_HOST,
+        user: process.env.DB_BASIC_USER,
+        password: process.env.DB_BASIC_PASS,
+        database: process.env.DB_NAME
+    });
+
+    if (reqURL.query.name) {
+        var name = reqURL.query.name;
+
+        var sqlQuery = "SELECT * FROM Places WHERE PlaceName=?;";
+
+        connection.query(sqlQuery, [name], (err, result) => {
+            if (err) throw err;
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(result));
+        })
+    }
+    
+};
