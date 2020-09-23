@@ -35,17 +35,38 @@ exports.get = function(req, res) {
         database: process.env.DB_NAME
     });
 
+    var sqlQuery = "SELECT * FROM Places";
+
     if (reqURL.query.name) {
         var name = reqURL.query.name;
-
-        var sqlQuery = "SELECT * FROM Places WHERE PlaceName=?;";
-
-        connection.query(sqlQuery, [name], (err, result) => {
-            if (err) throw err;
-            res.statusCode = 200;
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify(result));
-        })
+        sqlQuery += " WHERE PlaceName=?;";
     }
+
+    sqlQuery += ";"
+
+    connection.query(sqlQuery, [name], (err, result) => {
+        if (err) throw err;
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(result));
+    })
     
+};
+
+exports.post = function(req, res) {
+    const reqURL = url.parse(req.url, true);
+
+    body = "";
+
+    req.on('data', function (chunk) {
+        body += chunk;
+    });
+
+    req.on('end', function () {
+        postBody = JSON.parse(body);
+        
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(result));
+    });
 };

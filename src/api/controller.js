@@ -9,12 +9,12 @@ module.exports = http.createServer((req, res) => {
     // GET Endpoints
     if (reqURL.pathname == '/api/place' && req.method === 'GET') {
         console.log('Request Type: ' + req.method + ' Endpoint: ' + reqURL.pathname);
-        place.getAll(req, res);
-    } 
-    else if (reqURL.pathname == '/api/place/' && req.method === 'GET') {
-        console.log('Request Type: ' + req.method + ' Endpoint: ' + reqURL.pathname);
         place.get(req, res);
-    }
+    } 
+    else if (reqURL.pathname == '/api/place' && req.method === 'POST') {
+        console.log('Request Type: ' + req.method + ' Endpoint: ' + reqURL.pathname);
+        place.post(req, res);
+    } 
     else {
         console.log('Request Type:' +
             req.method + ' Invalid Endpoint: ' +
