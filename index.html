@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <title>Travel App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
-    <h1>Welcome to our <span>stunning</span> travel app 🥳.</h1>
-    <img src="https://media1.tenor.com/images/b14a2c35f659fa33df51ed9d9e370d83/tenor.gif?itemid=5113774" alt="Man throwing glitter.">
+    <nav class="navbar">
+        <img src="./src/assets/images/kangaroo.svg" href="#" class="logo" alt="logo"></img>
+            <span class="navbar-toggle" id="js-navbar-toggle")>
+                <i class="fas fa-bars"></i>
+            </span>
+            <ul class="main-nav" id='nav-ul'>
+                <li><a class="nav-link-element" href="/index.html">Home</a></li>
+                <li><a class="nav-link-element" href="#">Map</a></li>
+                <li><a class="nav-link-element" href="#">List</a></li>
+                </ul>
+        </nav>
+
+    <main>
+        <div class='main-img-wrapper'>
+                <img src="./src/assets/images/apostles.jpg" alt="Apostles on the Great Ocean Road" class='hero-image'>
+        </div>
+        <h1>Go exploring</h1>
+        <div id="button-wrapper">
+            <button id="map-button"><i class="fas fa-map"></i> Map</button>
+            <button id="list-button"> <i class="fas fa-list"></i> List</button>
+        </div>
+    </main>
+
+    <script src="./src/js/engine.js"></script>
+    <script src="https://kit.fontawesome.com/7f1e8e7975.js" crossorigin="anonymous"></script>
 </body>
 </html>
