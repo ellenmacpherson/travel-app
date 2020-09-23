@@ -28,13 +28,17 @@ html {
 }
 
 body {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', 'Arial';
     font-weight: 400;
+}
+
+h1 {
+    font-size: 5rem;
 }
 
 p, li, a {
@@ -45,13 +49,13 @@ p, li, a {
 .navbar {
     position: absolute;
     height: 10%;
-    width: 100%;
+    width: inherit;
     margin-bottom: 10px;
     z-index: 10;
 }
 
 .main-nav {
-    width: 100%;
+    width: inherit;
     display: none;
     text-align: center;
     background-color: white;
@@ -98,19 +102,80 @@ p, li, a {
 }
 
 main {
-    width: inherit;
+    width: 100vw;
     height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-img-wrapper {
-    z-index: 5;
-    height: 100%;
+    z-index: -1;
+    height: inherit;
     width: inherit;
     position: absolute;
     top: 10%;
+    background-color: black;
+
 }
 
 .hero-image {
-    height: inherit;
-    width: inherit;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+}
+
+main h1 {
+    height: fit-content;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10%;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+#button-wrapper {
+    margin-top: 5%;
+}
+
+main button {
+    height: 50px;
+    width: 150px;
+    border: none;
+    margin: 0 10px;
+    color: white;
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Open Sans', 'Helvetica';
+    border-radius: 40px;
+}
+
+#map-button:hover,
+#list-button:hover
+{
+    background-color: white;
+    color: black;
+}
+
+#map-button {
+    background-color: var(--pacific-blue);
+}
+
+#list-button {
+    background-color: var(--orange-peel);
+}
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    main button{
+        height: 35px;
+        width: 105px;
+    }
 }
