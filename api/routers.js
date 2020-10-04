@@ -5,6 +5,6 @@ const service = restana();
 const api = service.newRouter();
 
 const places = require('./routes/places');
-api.use('/', places);
+api.use('/db', places);
 
 module.exports = api;
