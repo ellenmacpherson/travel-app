@@ -28,4 +28,13 @@ places.get('/places/:name', (req, res) => {
     })
 })
 
+places.post('/places/create', (req, res) => {
+    console.log('Post request received.');
+    var restext = "POST request contains: "
+    restext += req.body.create_place_name
+    restext += " and "
+    restext += req.body.create_place_url
+    res.send(restext)
+})
+
 module.exports = places;
